@@ -1,4 +1,4 @@
-# 剑指 offer
+# 剑指Offer
 | # | Title | Solution |
 |---| ----- | -------- |
 | 1 | [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=2&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) | [Python](./src/1.py)
