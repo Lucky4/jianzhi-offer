@@ -1,40 +1,39 @@
-# -*- coding:utf-8 -*-
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-from collections import deque
-
-
 class Solution:
-    # 返回二维列表[[1,2],[4,5]]
-    def Print2(self, pRoot):
-        res = []
+    def Print(self, pRoot):
         if pRoot == None:
-            return res
+            return []
         
+        stack1 = []
+        stack2 = []
+        
+        stack1.append(pRoot)
+        level = 1
+        
+        res = []
         tmp_res = []
-        q = deque()
-        q.append(pRoot)
-        start = 0
-        end = 1
-
-        while len(q) > 0:
-            tmp = q.popleft()
+        
+        while len(stack1) > 0:
+            tmp = stack1.pop()
             tmp_res.append(tmp.val)
-            start += 1
+            
+            if level % 2 == 0:
+                if tmp.right != None:
+                    stack2.append(tmp.right)
+                    
+                if tmp.left != None:
+                    stack2.append(tmp.left)
+            else:
+                if tmp.left != None:
+                    stack2.append(tmp.left)
 
-            if tmp.left != None:
-                q.append(tmp.left)
-
-            if tmp.right != None:
-                q.append(tmp.right)
-                
-            if start == end:
+                if tmp.right != None:
+                    stack2.append(tmp.right)
+                    
+            if len(stack1) == 0:
+                level += 1
+                stack1 = stack2
+                stack2 = []
                 res.append(tmp_res)
                 tmp_res = []
-                start = 0
-                end = len(q)
-                
+
         return res
