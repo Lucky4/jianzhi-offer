@@ -14,4 +14,5 @@ if __name__ == '__main__':
                     continue
                 else:
                     dp[j] = dp[j-w[i]] + v[i]
+
         print dp
